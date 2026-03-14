@@ -53,6 +53,7 @@ func (v *Validator) Validate(s any) (bool, map[string]string) {
 
 				if t, ok := v.customMessage[rule.ruleName]; ok {
 					errsMap[field.fieldName] = t.Render(field.fieldName, valueToString(value), rule.param)
+					continue
 				}
 				errsMap[field.fieldName] = err.Error()
 			}
